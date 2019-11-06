@@ -1,5 +1,6 @@
 import sys
 import numpy
+import shutil
 from PIL import Image
 
 def main():
@@ -10,6 +11,9 @@ def main():
     image = Image.open(sys.argv[1])
     print("Successfully loaded image")
     print("Image size: {} x {}".format(image.width, image.height))
+
+    term_size = shutil.get_terminal_size()
+    image = image.resize((term_size.columns, term_size.lines))
 
     pixels = numpy.asarray(image, numpy.intc)
     print()
@@ -29,9 +33,13 @@ def main():
     for y in range(0, image.height):
         for x in range(0, image.width):
             char_index = (brightness_matrix[y][x] / 255) * len(ascii_chars)
-            ascii_matrix[y][x] = ascii_chars[int(char_index)]
+            ascii_matrix[y][x] = ascii_chars[int(char_index) % len(ascii_chars)]
 
     print("Successfully created ASCII matrix")
+
+    for y in range(0, image.height):
+        for x in range (0, image.width):
+            print(ascii_matrix[y][x], end="")
 
 
 if __name__ == "__main__":
