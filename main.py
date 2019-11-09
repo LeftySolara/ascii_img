@@ -3,6 +3,7 @@ import numpy
 import shutil
 from PIL import Image
 
+
 def main():
     if len(sys.argv) != 2:
         print("usage: asciiArt <ImagePath>")
@@ -22,7 +23,8 @@ def main():
     brightness_matrix = numpy.zeros((image.height, image.width), numpy.uint8)
     for y in range(0, image.height):
         for x in range(0, image.width):
-            brightness = (pixels[y][x][0] + pixels[y][x][1] + pixels[y][x][2]) // 3
+            brightness = (pixels[y][x][0] + pixels[y]
+                          [x][1] + pixels[y][x][2]) // 3
             brightness_matrix[y][x] = brightness
 
     print("Successfully created brightness matrix")
@@ -33,12 +35,13 @@ def main():
     for y in range(0, image.height):
         for x in range(0, image.width):
             char_index = (brightness_matrix[y][x] / 255) * len(ascii_chars)
-            ascii_matrix[y][x] = ascii_chars[int(char_index) % len(ascii_chars)]
+            ascii_matrix[y][x] = ascii_chars[int(
+                char_index) % len(ascii_chars)]
 
     print("Successfully created ASCII matrix")
 
     for y in range(0, image.height):
-        for x in range (0, image.width):
+        for x in range(0, image.width):
             print(ascii_matrix[y][x], end="")
 
 
