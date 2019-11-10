@@ -71,7 +71,7 @@ def printMatrix(matrix):
 
 def main():
     if len(sys.argv) != 2:
-        print("usage: asciiArt <ImagePath>")
+        print("usage: ascii-img <ImagePath>")
         return
 
     image = loadImage(sys.argv[1])
@@ -86,3 +86,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
