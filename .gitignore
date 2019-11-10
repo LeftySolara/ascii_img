@@ -1,2 +1,4 @@
 build/
 samples/
+dist/
+*egg-info*

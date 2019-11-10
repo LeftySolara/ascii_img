@@ -5,7 +5,7 @@ terminal window dimensions, so smaller font sizes (or zooming out) will
 result in more detailed ASCII images.
 
 ## Usage
-```ascii-img <ImagePath>```
+```ascii_img <ImagePath>```
 
 ## Examples
 
