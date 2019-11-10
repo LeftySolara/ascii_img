@@ -4,7 +4,12 @@ Converts images to ASCII art in your terminal. Images are resized to fit the
 terminal window dimensions, so smaller font sizes (or zooming out) will
 result in more detailed ASCII images.
 
+## Installation
+
+```pip install ascii-img```
+
 ## Usage
+
 ```ascii_img <ImagePath>```
 
 ## Examples
